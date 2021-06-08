@@ -1,10 +1,16 @@
-import SHOP_DATA from "./shop.data";
+// import SHOP_DATA from "./shop.data";
 
 import ShopActionTypes from "./shop.types";
 
 // static data calls
+/*
 const INITIAL_STATE = {
   collections: SHOP_DATA,
+};
+*/
+
+const INITIAL_STATE = {
+  collections: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
