@@ -33,35 +33,38 @@ class App extends React.Component {
     const { setCurrentUser } = this.props;
     //const { setCurrentUser, collectionsArray } = this.props;  // add collection items by using this
 
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
-      //this.setState({ currentUser: user });
-      //createUserProfileDocument(user);
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(
+      async (userAuth) => {
+        //this.setState({ currentUser: user });
+        //createUserProfileDocument(user);
+        if (userAuth) {
+          const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot((snapShot) => {
-          setCurrentUser({
-            id: snapShot.id,
-            ...snapShot.data(),
+          userRef.onSnapshot((snapShot) => {
+            setCurrentUser({
+              id: snapShot.id,
+              ...snapShot.data(),
+            });
           });
-        });
-        //() => {
-        //  console.log(this.state);
-        //}
-        //console.log(this.state);
-      } else {
-        setCurrentUser(userAuth);
-      }
-      // add collection items by using this
-      /*
+          //() => {
+          //  console.log(this.state);
+          //}
+          //console.log(this.state);
+        } else {
+          setCurrentUser(userAuth);
+        }
+        // add collection items by using this
+        /*
       addCollectionAndDocuments(
         "collections",
         collectionsArray.map(({ title, items }) => ({ title, items }))
       );
       */
 
-      //console.log(user);
-    });
+        //console.log(user);
+      },
+      (error) => console.log(error)
+    );
   }
 
   componentWillUnmount() {
