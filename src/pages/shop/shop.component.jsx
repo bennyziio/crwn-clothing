@@ -9,7 +9,8 @@ import { connect } from "react-redux";
 // } from "../../firebase/firebase.utils";
 
 // import { updateCollections } from "../../redux/shop/shop.actions";
-import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
+//import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
+import { fetchCollectionsStart } from "../../redux/shop/shop.actions";
 // import {
 //   //selectIsCollectionFetching,
 //   selectIsCollectionLoaded,
@@ -66,8 +67,10 @@ class ShopPage extends React.Component {
     //     this.setState({ loading: false });
     //   }
     // );
-    const { fetchCollectionsStartAsync } = this.props;
-    fetchCollectionsStartAsync();
+    //const { fetchCollectionsStartAsync } = this.props;
+    //fetchCollectionsStartAsync();
+    const { fetchCollectionsStart } = this.props;
+    fetchCollectionsStart();
   }
 
   render() {
@@ -111,7 +114,8 @@ class ShopPage extends React.Component {
 const mapDispatchToProps = (dispatch) => ({
   // updateCollections: (collectionsMap) =>
   //   dispatch(updateCollections(collectionsMap)),
-  fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  //fetchCollectionsStartAsync: () => dispatch(fetchCollectionsStartAsync()),
+  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 });
 
 //export default connect(mapStateToProps, mapDispatchToProps)(ShopPage);
