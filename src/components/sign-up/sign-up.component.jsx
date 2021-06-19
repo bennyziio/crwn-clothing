@@ -33,7 +33,7 @@ class SignUp extends React.Component {
       alert("password don't match");
       return;
     }
-
+    //console.log(this.props);
     signUpStart({ displayName, email, password });
     // try {
     //   const { user } = await auth.createUserWithEmailAndPassword(
